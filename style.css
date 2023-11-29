@@ -1,0 +1,39 @@
+body{
+    background-color: whitesmoke;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+#board{
+    display: grid;
+    margin:50px;
+    border: solid black 2px;
+    height:500px;
+    width: 500px;
+}
+#black, #grid, #color, #reset{
+    margin:25px;
+    height: 50px;
+    width: 100px;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 100%;
+}
+.buttons{
+    /* display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center; */
+    font-size: larger;
+    font-weight: bold;
+}
+.slidecontainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* .gridRow {
+    border: 1px solid black;
+} */
