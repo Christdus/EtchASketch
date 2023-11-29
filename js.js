@@ -23,6 +23,9 @@ function createBoard(gridSize){
     console.log(gridSize);
     console.log(numDivs);
     let board = document.querySelector("#board");
+    while (board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
     
 
     board.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
@@ -33,19 +36,20 @@ function createBoard(gridSize){
         div.style.border = "1px solid rgba(0, 0, 0, 0.25)";
         board.appendChild(div);
 
-        // div.addEventListener("mouseover", handleMouseOver)   
+        div.addEventListener("click", handleMouseOver)   
         }
     }
+const board = document.querySelector('#board');
+function handleMouseOver(event){
+    event.target.addEventListener("mouseover", handleMouseOver);
 
-    const black = document.querySelector('#black');
-    black.addEventListener("click",function(){
-        console.log("black");
-        });
-    const color = document.querySelector('#color');
-    color.addEventListener("click",function(){
-        console.log("color");
-    });
-function handleMouseOver
+    
+    event.target.style.backgroundColor = "black";
+
+   
+    event.target.removeEventListener("click", handleMouseClick);   
+    } 
+
 
 
 
