@@ -1,23 +1,18 @@
 
 const grid = document.querySelector('#grid');
 grid.addEventListener("click", function(){
-    console.log ("hi");
-    let gridSize = prompt("Enter your grid size(16/100): Click ok!");
+        console.log(grid.value)
     
-    if(gridSize !== null) {
-        gridSize = parseInt(gridSize);
+        gridSize = parseInt(grid.value);
         
-        if(!isNaN(gridSize) && gridSize >= 16 && gridSize<=100) {
+        (!isNaN(gridSize) && gridSize >= 16 && gridSize<=100) 
             createBoard(gridSize);
-            return gridSize;
-        }else{
-            alert("Invalid input. Please enter a number between 16 and 100! Click ok!");
             console.log(gridSize);
-            return gridSize;   
-        }
-    }
-});
+            document.getElementById("Gridsize").innerHTML = "Gridsize: " + gridSize;
+            return gridSize;
 
+        }
+    );
 function createBoard(gridSize){
     let numDivs = gridSize * gridSize;
     console.log(gridSize);
@@ -35,22 +30,24 @@ function createBoard(gridSize){
         let div = document.createElement("div");
         div.style.border = "1px solid rgba(0, 0, 0, 0.25)";
         board.appendChild(div);
-
-        div.addEventListener("click", handleMouseOver)   
-        }
-    }
-const board = document.querySelector('#board');
+        div.addEventListener('mouseover', (handleMouseOver));}
+}
+const color = document.querySelector('#myColor');
 function handleMouseOver(event){
-    event.target.addEventListener("mouseover", handleMouseOver);
-
-    
-    event.target.style.backgroundColor = "black";
-
-   
-    event.target.removeEventListener("click", handleMouseClick);   
+    event.target.style.backgroundColor = (color.value);
+    console.log(color.value)
+    console.log(event)
+    // event.target.removeEventListener("click", handleMouseClick);   
     } 
 
 
-
+const resetBoard = document.querySelector('#reset');
+resetBoard.addEventListener('click', function(){
+        let board = document.querySelector("#board");
+        while (board.firstChild) {
+            board.removeChild(board.firstChild);
+        }
+        createBoard(gridSize);      
+    });
 
 
